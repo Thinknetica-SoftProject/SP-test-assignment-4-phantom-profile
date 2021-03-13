@@ -16,6 +16,19 @@
 #
 ## Решение:
 
+file = File.open('data/1.txt', 'r')
 
+floor = 0
 
+string = file.read.chomp
+(0..(string.length - 1)).each do |i|
+  if string[i] == '('
+    floor += 1
+  else
+    floor -= 1
+  end
+end
+puts floor
+
+file.close
 

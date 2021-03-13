@@ -16,3 +16,13 @@
 #
 ## Решение:
 
+require 'digest'
+
+letters = gets.chomp
+result = ''
+nums = 0
+while result[0..4] != '00000'
+  nums += 1
+  result = Digest::MD5.hexdigest(letters + ans.to_s)
+end
+puts nums
