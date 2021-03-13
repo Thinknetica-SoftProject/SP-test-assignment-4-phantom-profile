@@ -16,4 +16,18 @@
 #
 ## Решение:
 
+file = File.open('data/4.txt', 'r')
 
+paper = 0
+
+file.readlines.each do |string|
+  sizes = string.split('x').map(&:to_i)
+  min_side = sizes.min
+  len = sizes[0]
+  width = sizes[1]
+  height = sizes[2]
+  paper_for_box = len * 2 + width * 2 + height * 2 + min_side
+  paper += paper_for_box
+end
+
+puts paper
