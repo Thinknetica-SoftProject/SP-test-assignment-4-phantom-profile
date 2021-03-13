@@ -17,16 +17,17 @@
 ## Решение:
 
 file = File.open('data/4.txt', 'r')
-
 paper = 0
 
 file.readlines.each do |string|
-  sizes = string.split('x').map(&:to_i)
-  min_side = sizes.min
+  sizes = string.split('x').map(&:to_i).sort
   len = sizes[0]
-  width = sizes[1]
-  height = sizes[2]
-  paper_for_box = len * 2 + width * 2 + height * 2 + min_side
+  height = sizes[1]
+  width = sizes[2]
+  w_l = width * len
+  w_h = width * height
+  l_h = len * height
+  paper_for_box = w_l * 2 + w_h * 2 + l_h * 3
   paper += paper_for_box
 end
 
