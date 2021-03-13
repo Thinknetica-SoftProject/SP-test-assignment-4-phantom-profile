@@ -10,4 +10,17 @@
 #
 ## Решение:
 
+file = File.open('data/3.txt', 'r')
 
+password = 0
+
+file.readlines.each do |string|
+  array = string.split("\t").map(&:to_i)
+  min_num = array.min
+  max_num = array.max
+  password += max_num - min_num
+end
+
+puts password
+
+file.close
